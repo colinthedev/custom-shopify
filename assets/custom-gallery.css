@@ -1,0 +1,75 @@
+.gallery {
+  gap: 5px;
+  transition: 0.3s;
+}
+
+.gallery:hover .gallery__image {
+  filter: grayscale(1);
+}
+
+.gallery__column {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.gallery__image {
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.gallery__image:hover {
+  transform: scale(1.1);
+}
+
+.gallery__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0px 15px 15px 15px;
+  width: 100%;
+  opacity: 0;
+  background: linear-gradient(
+    0deg,
+    #000000e3 0%,
+    #ffffff00 100%
+  );
+  transition: 0.55s;
+}
+
+.gallery__caption--title {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.gallery__caption--description {
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  color: #fff;
+}
+
+.gallery__link {
+  overflow: hidden;
+}
+
+.gallery__link:hover .gallery__image {
+  filter: grayscale(0);
+}
+
+.gallery__link:hover .gallery__caption,
+.gallery__link:hover .gallery__description {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .gallery__column--mobile-equalizer {
+    max-height: 235px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .gallery__column--mobile-equalizer {
+    max-height: 470px;
+    object-fit: cover;
+  }
+}

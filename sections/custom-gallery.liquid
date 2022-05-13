@@ -1,85 +1,4 @@
-<style>
-
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    transition: .3s;
-    justify-content: center;
-  }
-
-  .gallery:hover .gallery__image {
-    filter: grayscale(1);
-  }
-    
-  .gallery__column {
-    display: flex;
-    flex: 0 0 auto;
-  }
-
-  .gallery__thumb {
-    height: 100%;
-    position: relative;
-  }
-  
-  .gallery__image {
-    object-fit: cover;
-    display: block;
-    transition: .3s;
-  }
-
-  .gallery__image:hover {
-    transform: scale(1.1);
-  }
-
-  .gallery__caption {
-    position: absolute;
-		bottom: 0;
-		left: 0;
-		padding: 0px 15px 15px 15px;
-		width: 100%;
-		opacity: 0;
-		background: linear-gradient(0deg, rgb(0 0 0 / 89%) 0%, rgba(255, 255 ,255 , 0) 100%);
-		transition: .55s;
-  }
-
-  .gallery__caption--title {
-		font-family: 'Raleway', sans-serif;
-		font-size: 16px;
-		color: #fff;
-  }
-
-  .gallery__caption--description {
-		font-family: 'Raleway', sans-serif;
-		font-size: 12px;
-		color: #fff;
-  }
-
-  .gallery__link {
-    height: 100%;
-    margin: 2px;
-		overflow: hidden;
-    width: 100%;
-  }
-
-  .gallery__link:hover .gallery__image {
-    filter: grayscale(0);
-  }
-
-  .gallery__link:hover .gallery__caption, 
-  .gallery__link:hover .gallery__description {
-    opacity: 1;
-  }
-
-  @media only screen and (max-width: 992px) {
-    .gallery__column--mobile-equalizer {
-      max-height: 235px;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-
-</style>
+{{ 'custom-gallery.css' | asset_url | stylesheet_tag }}
 
 <div class="container color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}">
   {%- if section.settings.heading != blank -%}
@@ -97,33 +16,34 @@
     </div>
   {% endif %}
 
-  <div class="gallery">
+  <div class="gallery d-flex flex-wrap justify-content-center">
     {% for block in section.blocks %}
-      {% if forloop.index == 1 %}
-        {%- assign column_size = 'col-12 col-lg-3' -%}
-      {% elsif forloop.index == 2 %}
-        {%- assign column_size = 'col-12 col-lg-4' -%}
-      {% elsif forloop.index == 3 %}
-        {%- assign column_size = 'col-12 col-lg-3' -%}
-      {% elsif forloop.index == 4 %}
-        {%- assign column_size = 'col-12 col-lg-6' -%}
-      {% elsif forloop.index == 5 %}
-        {%- assign column_size = 'col-12 col-lg-4' -%}
-      {% elsif forloop.index == 6 %}
-        {%- assign column_size = 'col-12 col-lg-4' -%}
-      {% elsif forloop.index == 7 %}
-        {%- assign column_size = 'col-12 col-lg-6' -%}
-      {% else %}
-        {%- assign column_size = 'col-12 col-lg-auto' -%}
-      {% endif %}
-
+      {%- liquid
+         if forloop.index == 1
+          assign column_size = 'col-12 col-md-3' 
+         elsif forloop.index == 2
+          assign column_size = 'col-12 col-md-4' 
+         elsif forloop.index == 3
+          assign column_size = 'col-12 col-md-3' 
+         elsif forloop.index == 4
+          assign column_size = 'col-12 col-md-6' 
+         elsif forloop.index == 5
+          assign column_size = 'col-12 col-md-4' 
+         elsif forloop.index == 6
+          assign column_size = 'col-12 col-md-4' 
+         elsif forloop.index == 7
+          assign column_size = 'col-12 col-md-6' 
+         else
+          assign column_size = 'col-12 col-md-auto' 
+         endif
+      -%}
       <div class="gallery__column gallery__column--mobile-equalizer {{ column_size }}">
         {% if block.settings.image == blank %}
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
         {% else %}
-          <a class="gallery__link" href="{% if block.settings.link != blank %} {{ block.settings.link }} {% endif %}">
-            <div class="gallery__thumb">
-              {% render 'responsive-image' with block.settings.image, alt: block.settings.image.alt class: 'gallery__image w-100 h-100' %}
+          <a class="gallery__link w-100 h-100" href="{% if block.settings.link != blank %} {{ block.settings.link }} {% endif %}">
+            <div class="position-relative h-100">
+              {% render 'responsive-image' with block.settings.image, alt: block.settings.image.alt class: 'gallery__image d-block w-100 h-100' %}
               <div class="gallery__caption">
                 <h4 class="gallery__caption--title">{{ block.settings.title }}</h4>
                 <p class="gallery__caption--description">{{ block.settings.description }}</p>
