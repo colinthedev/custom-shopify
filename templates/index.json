@@ -223,6 +223,7 @@
         "165237642465a668a4-1": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/beach-sunset-thailand.jpg",
             "link": "",
             "title": "",
             "description": ""
@@ -231,6 +232,43 @@
         "165237642465a668a4-2": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/beach-sunset-thailand.jpg",
+            "link": "",
+            "title": "",
+            "description": ""
+          }
+        },
+        "da74e654-2f09-4100-8747-15e974399fa3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/china-town-los-angeles.jpg",
+            "link": "",
+            "title": "",
+            "description": ""
+          }
+        },
+        "1ff3d439-76f1-47e1-a1f4-3f990d28ed15": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/beach-sunset-thailand.jpg",
+            "link": "",
+            "title": "",
+            "description": ""
+          }
+        },
+        "997ea63b-2827-45fa-b7a1-194e6f4ada25": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/beach-sunset-thailand.jpg",
+            "link": "",
+            "title": "",
+            "description": ""
+          }
+        },
+        "a26c3395-ef33-4c14-9d74-bd82b272e067": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/beach-sunset-thailand.jpg",
             "link": "",
             "title": "",
             "description": ""
@@ -240,7 +278,11 @@
       "block_order": [
         "165237642465a668a4-0",
         "165237642465a668a4-1",
-        "165237642465a668a4-2"
+        "165237642465a668a4-2",
+        "da74e654-2f09-4100-8747-15e974399fa3",
+        "1ff3d439-76f1-47e1-a1f4-3f990d28ed15",
+        "997ea63b-2827-45fa-b7a1-194e6f4ada25",
+        "a26c3395-ef33-4c14-9d74-bd82b272e067"
       ],
       "settings": {
         "color_scheme": "accent-1",
