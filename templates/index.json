@@ -286,12 +286,12 @@
       ],
       "settings": {
         "color_scheme": "accent-1",
-        "heading_size": "h1",
+        "heading_size": "h0",
         "heading": "Heading Text",
         "sub_heading": "Sub-heading Text",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "media_border_thickness": 1
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "media_border_thickness": 3
       }
     }
   },
